@@ -6,6 +6,6 @@
     <title>website of function</title>
   </head>
   <body>
-    <img src="../img/test.jpg" alt="My test image" />
+    <img src="../img/test.jpg" alt="My test image" <h1>主标题</h1>/>
   </body>
 </html>
