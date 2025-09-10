@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width" />
     
     <!-- 引入外部CSS样式表（自定义的style.css） -->
-    <link href="styles/style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     
     <!-- 引入Google字体库中的Noto Serif字体，适合学术风格 -->
     <link
@@ -17,6 +17,9 @@
     
     <!-- 设置网页标题，出现在浏览器标签栏上 -->
     <title>方俊祺 | 学术主页</title>
+    <!-- 引入 Leaflet.js 和样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   </head>
   <body>
     <!-- 页眉部分 -->
@@ -71,5 +74,80 @@
         </a>
       </p>
     </section>
+
+    <!-- 地图容器 -->
+    <section>
+      <h2>用户位置显示</h2>
+      <div id="map" style="height: 400px;"></div> <!-- 地图容器，指定高度 -->
+    </section>
+
+    <script>
+      // 获取页面的 body 元素
+      const body = document.body;
+
+      // 监听鼠标点击事件
+      body.addEventListener('click', function (e) {
+        // 创建一个新的圆圈元素
+        const circle = document.createElement('div');
+        circle.classList.add('click-effect');
+        
+        // 设置圆圈位置为鼠标点击的位置
+        const size = Math.max(body.offsetWidth, body.offsetHeight);
+        circle.style.width = circle.style.height = `${size}px`;
+        circle.style.left = `${e.clientX - size / 2}px`;
+        circle.style.top = `${e.clientY - size / 2}px`;
+        
+        // 将圆圈添加到页面中
+        body.appendChild(circle);
+        
+        // 动画结束后移除圆圈
+        setTimeout(() => {
+          circle.remove();
+        }, 600); // 600ms后移除
+      });
+    </script>
+
+    <script>
+      // 获取用户地理位置并显示在地图上
+      function showUserLocation() {
+        if (navigator.geolocation) {
+          // 获取用户当前位置
+          navigator.geolocation.getCurrentPosition(function (position) {
+            const lat = position.coords.latitude; // 纬度
+            const lon = position.coords.longitude; // 经度
+
+            // 创建地图
+            const map = L.map('map').setView([lat, lon], 13); // 设置地图视图中心为用户当前位置
+
+            // 添加地图的底图（使用 OpenStreetMap）
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }).addTo(map);
+
+            // 在地图上标记当前位置
+            const marker = L.marker([lat, lon]).addTo(map);
+            marker.bindPopup("您现在的位置").openPopup();
+
+            // 保存用户的位置和访问次数到 localStorage
+            let visitData = JSON.parse(localStorage.getItem("visitData")) || [];
+            visitData.push({ lat, lon, timestamp: new Date().toISOString() });
+
+            // 将新位置数据保存到 localStorage
+            localStorage.setItem("visitData", JSON.stringify(visitData));
+
+            // 记录地图上的所有位置
+            visitData.forEach((data) => {
+              L.marker([data.lat, data.lon]).addTo(map);
+            });
+          });
+        } else {
+          alert("您的浏览器不支持地理位置功能");
+        }
+      }
+
+      // 页面加载时显示位置
+      window.onload = showUserLocation;
+    </script>
+
   </body>
 </html>
