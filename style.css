@@ -1,33 +1,87 @@
-html {
-  font-size: 10px; /* px 表示“像素（pixel）”: 基础字号为 10 像素 */
-  font-family: "Open Sans", sans-serif; /* 这应该是你从 Google Fonts 得到的其余输出。 */
-  background-color: #00539f;
-}
-h1 {
-  font-size: 60px;
-  text-align: center;
+/* style.css — 学术风格主页 */
+
+body {
+  font-family: 'Noto Serif', serif;
+  margin: 40px auto;
+  max-width: 800px;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fdfdfd;
+  padding: 0 20px;
 }
 
-p,
-li {
-  font-size: 16px;
-  line-height: 2;
-  letter-spacing: 1px;
+header {
+  text-align: center;
+  margin-bottom: 50px;
 }
-body {
-  width: 600px;
-  margin: 0 auto;
-  background-color: #ff9500;
-  padding: 0 20px 20px 20px;
-  border: 5px solid black;
-}
+
 h1 {
-  margin: 0;
-  padding: 20px 0;
-  color: #00539f;
-  text-shadow: 3px 3px 1px black;
+  font-size: 2.4em;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+  color: #111;
 }
+
+header p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+h2 {
+  margin-top: 2em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 0.3em;
+  color: #222;
+}
+
+p {
+  margin: 1em 0;
+}
+
+ul {
+  padding-left: 20px;
+  margin: 0.5em 0;
+}
+
+li {
+  margin: 0.4em 0;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #0055a5;
+  text-decoration: underline;
+}
+
+section {
+  margin-bottom: 2.5em;
+}
+
+/* 图片样式：适合学术头像 */
 img {
-  display: block;
-  margin: 0 auto;
+  border-radius: 50%;
+  margin-top: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 小屏幕优化 */
+@media (max-width: 600px) {
+  body {
+    margin: 20px;
+    font-size: 0.95em;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
 }
