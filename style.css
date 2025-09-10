@@ -96,3 +96,21 @@ img {
     font-size: 1.3em;
   }
 }
+
+/* 点击效果的容器 */
+.click-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0, 153, 255, 0.6); /* 蓝色圆圈，透明度0.6 */
+  pointer-events: none; /* 防止圆圈影响其他元素的点击 */
+  transform: scale(0); /* 初始状态：圆圈大小为0 */
+  animation: clickAnimation 0.6s forwards; /* 动画效果，0.6秒后结束 */
+}
+
+/* 点击效果的动画 */
+@keyframes clickAnimation {
+  to {
+    transform: scale(4); /* 扩展到原来的4倍大小 */
+    opacity: 0; /* 动画结束时，透明度为0 */
+  }
+}
