@@ -1,94 +1,98 @@
-/* style.css — 学术风格主页 */
+/* style.css — 鲜艳色彩版学术主页 */
 
 /* 基本的页面布局和字体设置 */
 body {
-  font-family: 'Noto Serif', serif; /* 使用 Noto Serif 字体，适合学术风格 */
-  margin: 40px auto; /* 页面上下有空白，居中显示内容 */
-  max-width: 800px; /* 页面最大宽度限制为 800px，适合大部分设备 */
-  line-height: 1.8; /* 行间距为1.8，增加可读性 */
-  color: #333; /* 正文字体颜色设置为深灰色 */
-  background-color: #fdfdfd; /* 页面背景色为非常浅的灰色 */
-  padding: 0 20px; /* 页面左右留白，防止文字过于紧凑 */
+  font-family: 'Noto Serif', serif;
+  margin: 40px auto;
+  max-width: 800px;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fafafa; /* 使用浅灰色背景色，保持清新 */
+  padding: 0 20px;
 }
 
 /* 页眉部分（网站标题和描述） */
 header {
-  text-align: center; /* 标题居中显示 */
-  margin-bottom: 50px; /* 页眉与正文之间有足够的间距 */
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 h1 {
-  font-size: 2.4em; /* 主标题字体大小 */
-  margin-bottom: 0.2em; /* 标题下方留白 */
-  font-weight: 700; /* 字体加粗 */
-  color: #111; /* 深灰色字体，更加正式 */
+  font-size: 2.4em;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+  color: #e63946; /* 使用鲜艳的红色作为主标题颜色 */
 }
 
 header p {
-  font-size: 1.1em; /* 描述文字稍微小一点 */
-  color: #555; /* 描述文字使用浅灰色 */
+  font-size: 1.1em;
+  color: #555;
 }
 
-/* 二级标题（如 研究方向、出版物等） */
 h2 {
-  margin-top: 2em; /* 与上一部分的间距 */
-  font-size: 1.5em; /* 二级标题的字体大小 */
-  border-bottom: 1px solid #aaa; /* 二级标题下方加一条浅灰色的分隔线 */
-  padding-bottom: 0.3em; /* 分隔线与标题之间有些许空间 */
-  color: #222; /* 深灰色标题，保持整洁 */
+  margin-top: 2em;
+  font-size: 1.5em;
+  border-bottom: 3px solid #2a9d8f; /* 使用绿色作为分隔线的颜色 */
+  padding-bottom: 0.3em;
+  color: #2a9d8f; /* 二级标题使用鲜艳的绿色 */
 }
 
 /* 正文段落的样式 */
 p {
-  margin: 1em 0; /* 段落之间有适当的间距 */
+  margin: 1em 0;
 }
 
 /* 无序列表（如研究方向、成果） */
 ul {
-  padding-left: 20px; /* 列表项左侧缩进 */
-  margin: 0.5em 0; /* 列表上下有适当的间距 */
+  padding-left: 20px;
+  margin: 0.5em 0;
 }
 
 li {
-  margin: 0.4em 0; /* 列表项上下有一定的间距 */
+  margin: 0.4em 0;
+  color: #264653; /* 列表项字体颜色设置为深蓝色 */
 }
 
 /* 链接的样式 */
 a {
-  color: #003366; /* 链接使用深蓝色 */
-  text-decoration: none; /* 去掉默认下划线 */
-  transition: color 0.2s ease-in-out; /* 过渡效果，当鼠标悬停时，颜色平滑变化 */
+  color: #1d3557; /* 使用深蓝色作为链接颜色 */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-  color: #0055a5; /* 鼠标悬停时，链接颜色变为更亮的蓝色 */
-  text-decoration: underline; /* 鼠标悬停时，链接有下划线 */
+  color: #e63946; /* 鼠标悬停时，链接颜色变为鲜艳的红色 */
+  text-decoration: underline;
 }
 
 /* 各个 section（如关于我、出版物）部分的间距 */
 section {
-  margin-bottom: 2.5em; /* 每个 section 部分的底部间距 */
+  margin-bottom: 2.5em;
+  background-color: #ffffff; /* 背景为白色，便于分割各部分 */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加柔和的阴影效果 */
 }
 
 /* 图片样式：适合头像或个人照片 */
 img {
-  border-radius: 50%; /* 图片圆形边框 */
-  margin-top: 15px; /* 图片上方有一点空白 */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 图片添加轻微阴影 */
+  border-radius: 50%;
+  margin-top: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 /* 小屏幕优化：当屏幕宽度小于 600px 时，调整页面布局 */
 @media (max-width: 600px) {
   body {
-    margin: 20px; /* 页面左右间距缩小 */
-    font-size: 0.95em; /* 字体缩小一点，适应小屏幕 */
+    margin: 20px;
+    font-size: 0.95em;
   }
 
   h1 {
-    font-size: 1.8em; /* 主标题字体大小变小 */
+    font-size: 1.8em;
   }
 
   h2 {
-    font-size: 1.3em; /* 二级标题字体变小 */
+    font-size: 1.3em;
   }
 }
